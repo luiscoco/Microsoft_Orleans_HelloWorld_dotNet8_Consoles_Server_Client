@@ -17,7 +17,40 @@ This is the new project folders structure
 
 ### 1.1. We create the GrainsInterfaces project (Classes Library app)
 
+We right click on the solution and we add a new project 
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/13dc6688-86c4-4af0-96e0-e06995b0b1cb)
+
+We select the project template **Classes library**
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/ceea3ead-9547-468a-919b-5ff5cfe1a0c6)
+
+We select the project location and the project name
+
+This is the project folders structure
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/6846b957-17e2-4f68-bbe3-86a92a3d60b4)
+
+Do not forget to load the project dependency **Microsoft.Orleans.SDK**
+
+This is the interface source code
+
+**IHello.cs**
+
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GrainsInterfaces
+{
+    public interface IHello : IGrainWithIntegerKey
+    {
+        ValueTask<string> SayHello(string greeting);
+    }
+}
 
 ```
 
