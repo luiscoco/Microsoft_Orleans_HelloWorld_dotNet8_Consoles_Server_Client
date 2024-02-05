@@ -2,6 +2,9 @@
 
 ## 1. Run Visual Studio 2022 Community Edition and create a new blank solution 
 
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/89d1f1b1-a03a-47be-9892-07109662acf7)
+
+
 ### 1.1. We create the GrainsInterfaces project (Classes Library app)
 
 ```csharp
