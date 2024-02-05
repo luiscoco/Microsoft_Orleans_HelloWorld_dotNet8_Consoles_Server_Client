@@ -2,8 +2,21 @@
 
 ## 1. Run Visual Studio 2022 Community Edition and create a new blank solution 
 
-![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/89d1f1b1-a03a-47be-9892-07109662acf7)
+We create a new project
 
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/0df0b7f4-169a-4a90-858e-58f96c2ecfa3)
+
+We select the project template **blank solution**
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/7d69d9b1-8a0a-4277-b71a-f01780682ec8)
+
+We input the project name and location 
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/db8426a7-2bca-4086-9e01-496c84b80514)
+
+This is the new project folders structure
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/8c5c21f4-0ddf-4508-a484-b133292e6a9d)
 
 ### 1.1. We create the GrainsInterfaces project (Classes Library app)
 
