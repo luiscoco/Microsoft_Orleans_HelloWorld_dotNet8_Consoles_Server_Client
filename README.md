@@ -3,7 +3,6 @@
 ## 1. Run Visual Studio 2022 Community Edition and create a new blank solution 
 
 We create a new project
-
 ![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/ee71b567-06d1-49db-8fea-8ee61c026c87)
 
 We select the project template **blank solution**
