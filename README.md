@@ -4,7 +4,7 @@
 
 We create a new project
 
-![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/0df0b7f4-169a-4a90-858e-58f96c2ecfa3)
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/ee71b567-06d1-49db-8fea-8ee61c026c87)
 
 We select the project template **blank solution**
 
