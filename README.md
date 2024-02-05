@@ -104,11 +104,57 @@ namespace Grains
 
 ### 1.3. We create the Silo project (Console app)
 
-```csharp
+We create a new Console application for defining the Silo
 
+This is the project structure
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/a4fef97a-617d-41cc-b815-da6ec6f8ffca)
+
+Do not forget to load the project dependencies: **Microsoft.Extensions.Hosting**, **Microsoft.Extensions.Logging.Console**, **Microsoft.Orleans.Server** and the project reference: **Grains.csproj**
+
+**program.cs**
+
+```csharp
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+try
+{
+    using IHost host = await StartSiloAsync();
+    Console.WriteLine("\n\n Press Enter to terminate...\n\n");
+    Console.ReadLine();
+
+    await host.StopAsync();
+
+    return 0;
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex);
+    return 1;
+}
+
+static async Task<IHost> StartSiloAsync()
+{
+    var builder = new HostBuilder()
+        .UseOrleans(silo =>
+        {
+            silo.UseLocalhostClustering()
+                .ConfigureLogging(logging => logging.AddConsole());
+        });
+
+    var host = builder.Build();
+    await host.StartAsync();
+
+    return host;
+}
 ```
 
 ### 1.4. We create the Client project (Console app)
+
+
+
+**program.cs**
 
 ```csharp
 
