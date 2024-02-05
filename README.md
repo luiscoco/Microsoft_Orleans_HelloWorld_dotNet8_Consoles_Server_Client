@@ -152,12 +152,70 @@ static async Task<IHost> StartSiloAsync()
 
 ### 1.4. We create the Client project (Console app)
 
+We create a new Console application for defining the Silo
 
+This is the project structure
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/4f7e6648-9669-4c95-9122-74597fcaa215)
+
+Do not forget to load the project dependencies: **Microsoft.Extensions.Hosting**, **Microsoft.Extensions.Logging.Console**, **Microsoft.Orleans.Client** and the project reference: **GrainsInterfaces.csproj**
 
 **program.cs**
 
 ```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using GrainsInterfaces;
 
+try
+{
+    using IHost host = await StartClientAsync();
+    var client = host.Services.GetRequiredService<IClusterClient>();
+
+    await DoClientWorkAsync(client);
+    Console.ReadKey();
+
+    await host.StopAsync();
+
+    return 0;
+}
+catch (Exception e)
+{
+    Console.WriteLine($$"""
+        Exception while trying to run client: {{e.Message}}
+        Make sure the silo the client is trying to connect to is running.
+        Press any key to exit.
+        """);
+
+    Console.ReadKey();
+    return 1;
+}
+
+static async Task<IHost> StartClientAsync()
+{
+    var builder = new HostBuilder()
+        .UseOrleansClient(client =>
+        {
+            client.UseLocalhostClustering();
+        })
+        .ConfigureLogging(logging => logging.AddConsole());
+
+    var host = builder.Build();
+    await host.StartAsync();
+
+    Console.WriteLine("Client successfully connected to silo host \n");
+
+    return host;
+}
+
+static async Task DoClientWorkAsync(IClusterClient client)
+{
+    var friend = client.GetGrain<IHello>(0);
+    var response = await friend.SayHello("Good morning, HelloGrain!");
+
+    Console.WriteLine($"\n\n{response}\n\n");
+}
 ```
 
 ## See also this repo for more info
