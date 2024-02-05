@@ -12,6 +12,7 @@ We input the project name and location
 ![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/db8426a7-2bca-4086-9e01-496c84b80514)
 
 This is the new project folders structure
+
 ![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/8c5c21f4-0ddf-4508-a484-b133292e6a9d)
 
 ### 1.1. We create the GrainsInterfaces project (Classes Library app)
