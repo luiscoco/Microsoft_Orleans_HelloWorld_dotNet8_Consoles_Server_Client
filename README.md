@@ -218,7 +218,17 @@ static async Task DoClientWorkAsync(IClusterClient client)
 }
 ```
 
-## See also this repo for more info
+## 2. Run and Test the application
+
+We right click on the solution name and **Set the startup project**
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/542eb276-a823-439a-937e-5e7c6fb54426)
+
+We run the solution and we get this output
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/ac4426de-5b42-42e1-887c-a7bae499492c)
+
+## 3. See also this repo for more info
 
 https://github.com/willvelida/orleans-apps/tree/main
 
