@@ -56,8 +56,50 @@ namespace GrainsInterfaces
 
 ### 1.2. We create the GrainsInterfaces project (Classes Library app)
 
-```csharp
+Following the steps explained in section 1.1. we also create a new project for the Grains.
 
+This is the new project structure
+
+![image](https://github.com/luiscoco/Microsoft_Orleans_HelloWorld_dotNet8/assets/32194879/d6788c7a-6437-4e10-9f61-caea58be0cec)
+
+Do not forget to load the projec dependencies/libraries: **Microsoft.Orleans.SDK**, **Microsoft.Extensions.Logging.Abstractions** and also the project reference: **GrainsInterfaces.csproj**
+
+We also input the grains source code
+
+**HelloGrain.cs**
+
+```csharp
+using GrainsInterfaces;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Grains
+{
+    public class HelloGrain : Grain, IHello
+    {
+        private readonly ILogger _logger;
+
+        public HelloGrain(ILogger<HelloGrain> logger)
+        {
+            _logger = logger;
+        }
+
+        public ValueTask<string> SayHello(string greeting)
+        {
+            _logger.LogInformation(
+            "SayHello message received: greeting = '{Greeting}'", greeting);
+
+            return ValueTask.FromResult(
+                $"""
+            Client said: '{greeting}', so HelloGrain says: Hello!
+            """);
+        }
+    }
+}
 ```
 
 ### 1.3. We create the Silo project (Console app)
